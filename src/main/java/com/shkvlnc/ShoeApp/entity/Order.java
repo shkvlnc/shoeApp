@@ -1,34 +1,28 @@
 package com.shkvlnc.ShoeApp.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.List;
 
-@Data
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
-@Table(name = "orders")
+@Table(name = "ORDERS")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    private Long userId;       // FK to User
+    private Long productId;    // FK to Product
+    private Integer quantity;
 
-    @ManyToMany
-    @JoinTable(
-            name = "order_products",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private List<Product> products;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
-    private String status;        // e.g. "PENDING", "COMPLETED"
-    private String paymentStatus; // e.g. "SUCCESS", "FAILED"
-
-    // getters and setters
+    private LocalDateTime createdAt;
 }
