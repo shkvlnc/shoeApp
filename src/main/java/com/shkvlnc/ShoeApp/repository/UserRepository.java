@@ -1,4 +1,5 @@
 package com.shkvlnc.ShoeApp.repository;
 
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
 }
