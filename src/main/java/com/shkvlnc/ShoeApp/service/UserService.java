@@ -1,6 +1,7 @@
 package com.shkvlnc.ShoeApp.service;
 
 import com.shkvlnc.ShoeApp.entity.User;
+import com.shkvlnc.ShoeApp.entity.Role;
 import com.shkvlnc.ShoeApp.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ public class UserService {
     }
 
     public User registerUser(User user) {
+        if (user.getRole() == null) {
+            user.setRole(Role.USER); // ✅ enum instead of string
+        }
         return userRepository.save(user);
     }
 

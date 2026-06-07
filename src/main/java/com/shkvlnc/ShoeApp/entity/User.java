@@ -1,25 +1,26 @@
 package com.shkvlnc.ShoeApp.entity;
-import lombok.*;
-import jakarta.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+import jakarta.persistence.*;
+import lombok.*;
+
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Oracle supports IDENTITY in 12c+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String role; // e.g. "ADMIN", "CUSTOMER"
+    @Enumerated(EnumType.STRING) // store enum name in DB
+    private Role role;
 
-    // getters and setters
+    private String email;
 }
