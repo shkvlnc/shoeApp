@@ -1,9 +1,10 @@
 package com.shkvlnc.ShoeApp.entity;
-
+import lombok.*;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "users")
 public class User {

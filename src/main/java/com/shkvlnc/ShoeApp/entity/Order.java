@@ -1,10 +1,13 @@
 package com.shkvlnc.ShoeApp.entity;
 
-import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
+import jakarta.persistence.*;
+import lombok.*;
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "orders")
 public class Order {
