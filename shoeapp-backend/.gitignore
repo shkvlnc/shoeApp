@@ -1,9 +1,5 @@
-# Backend (Spring Boot / Maven)
 HELP.md
-shoeapp-backend/target/
-shoeapp-backend/.idea/
-shoeapp-backend/*.log
-shoeapp-backend/*.iml
+target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -35,12 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Frontend (React + Vite)
-shoeapp-ui/node_modules/
-shoeapp-ui/dist/
-shoeapp-ui/.env
-
-# OS / Editor
-.DS_Store
-*.swp
