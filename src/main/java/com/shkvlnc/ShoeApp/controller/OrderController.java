@@ -4,6 +4,7 @@ import com.shkvlnc.ShoeApp.dto.OrderRequestDTO;
 import com.shkvlnc.ShoeApp.dto.OrderResponseDTO;
 import com.shkvlnc.ShoeApp.service.OrderService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -53,7 +54,8 @@ public class OrderController {
     // ✅ ADMIN: Delete order
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
-    public void deleteOrder(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
+        return ResponseEntity.noContent().build();
     }
 }
