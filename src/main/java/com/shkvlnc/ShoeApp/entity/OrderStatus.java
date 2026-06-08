@@ -2,6 +2,9 @@ package com.shkvlnc.ShoeApp.entity;
 
 public enum OrderStatus {
     PENDING,
+    PAID,        // ✅ new
     CONFIRMED,
-    SHIPPED
+    SHIPPED,
+    CANCELLED    // optional
 }
+
